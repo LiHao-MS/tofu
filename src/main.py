@@ -40,7 +40,7 @@ def get_parser():
     #optimization
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--thres', type=float, default=0.3)
-    parser.add_argument('--weight_decay', type=float, default=0.001)
+    parser.add_argument('--weight_decay', type=float, default=0.01)
     parser.add_argument('--dropout', type=float, default=0.3)
     parser.add_argument('--patience', type=int, default=5) # init 10
 
