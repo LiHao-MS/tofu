@@ -54,7 +54,7 @@ def cluster_loop(test_loader, model, args):
     clustering_results = []
 
     for k, v in groups.items():
-        print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+        print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
               f' Generate {args.num_clusters} clusters on examples with label value {k}')
 
         x = np.stack(v['x'], axis=0)
@@ -120,7 +120,7 @@ def train_target_model(data, model, partition_model, opt, args):
     # 1. partition the target data into different groups
 
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           ' Partition the train data for the target task.', flush=True)
 
     train_loader = DataLoader(
@@ -144,7 +144,7 @@ def train_target_model(data, model, partition_model, opt, args):
     # use partition model to cluster the valdiation input and create the
     # validation groups
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           ' Partition the validation data for the target task.', flush=True)
 
     val_loaders = []
@@ -170,7 +170,7 @@ def train_target_model(data, model, partition_model, opt, args):
     # 2. train a stable classifier by minimizing the worst case risk across all
     # groups
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Use DRO to learn a robust target classifier", flush=True)
 
     best_acc = -1
@@ -218,7 +218,7 @@ def evaluate_target_model(data, model, args):
 
     print()
     print("{} Evaluating on the test environment for {}".format(
-        datetime.now().strftime('%02y/%02m/%02d %H:%M:%S'),
+        datetime.now().strftime('%y/%m/%d %H:%M:%S'),
         args.dataset), flush=True)
 
     test_loader = DataLoader(

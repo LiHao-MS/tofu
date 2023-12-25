@@ -79,7 +79,7 @@ def train_env_specific_model(data, train_env_id, val_env_id, args):
     cur_model, cur_opt = get_model(args, data)
 
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Start training classifier on train env {train_env_id}", flush=True)
 
     best_acc = -1
@@ -120,7 +120,7 @@ def train_robust_source_model(data, pretrain_res, model, opt, args):
         Use dro to learn a robust source model
     '''
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Use DRO to learn a robust source classifier", flush=True)
 
     # prepare the training data from the prediction results
@@ -177,7 +177,7 @@ def train_robust_source_model(data, pretrain_res, model, opt, args):
     for k in 'ebd', 'clf':
         model[k].load_state_dict(best_model[k])
 
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Finished DRO on the source task", flush=True)
 
 
@@ -199,7 +199,7 @@ def get_partition_loaders(train_data, pretrain_res, args):
     train_partition_loaders, val_partition_loaders = [], []
 
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Create groups (based on the prediction correctness)"
           f" for training the partition model", flush=True)
 

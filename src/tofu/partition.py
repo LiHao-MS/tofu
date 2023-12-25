@@ -184,7 +184,7 @@ def train_partition(train_partition_loaders,
     cycle = 0
 
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Learning the unstable feature representaiton",
           flush=True)
 
@@ -217,6 +217,6 @@ def train_partition(train_partition_loaders,
     for k in 'ebd', 'clf':
         partition_model[k].load_state_dict(best_model[k])
 
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f" Finished training the unstable feature representaiton",
           flush=True)

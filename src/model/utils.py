@@ -5,7 +5,7 @@ from model.embedding.cnn import CNN
 from model.embedding.textcnn import TextCNN
 from model.classifier.mlp import MLP
 from model.embedding.resnet import Resnet50
-from data.utils import is_textdata
+from data import is_textdata
 
 
 def get_model(args, data=None):

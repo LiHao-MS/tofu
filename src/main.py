@@ -28,8 +28,8 @@ def get_parser():
     parser.add_argument('--hidden_dim', type=int, default=300)
 
     #dataset
-    parser.add_argument('--src_dataset', type=str, default='')
-    parser.add_argument('--tar_dataset', type=str, default='')
+    parser.add_argument('--src_dataset', type=str, default='MNIST_02468_01234_5')
+    parser.add_argument('--tar_dataset', type=str, default='MNIST_13579_01234_5')
     parser.add_argument('--dataset', type=str, default='', help='placeholder')
 
     # method specification
@@ -42,7 +42,7 @@ def get_parser():
     parser.add_argument('--thres', type=float, default=0.3)
     parser.add_argument('--weight_decay', type=float, default=0.001)
     parser.add_argument('--dropout', type=float, default=0.3)
-    parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--patience', type=int, default=5) # init 10
 
     return parser
 
@@ -88,6 +88,7 @@ def set_seed(seed):
 
 
 if __name__ == '__main__':
+
     parser = get_parser()
     args = parser.parse_args()
 
@@ -110,7 +111,7 @@ if __name__ == '__main__':
     for source_task in args.src_dataset.split(','):
         # set the current dataset to source task
         args.dataset = source_task
-        print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+        print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
               f' Loading source task {args.dataset}',
               flush=True)
 
@@ -158,7 +159,7 @@ if __name__ == '__main__':
     # set the current dataset to the target task
     args.dataset = args.tar_dataset
     print()
-    print(datetime.now().strftime('%02y/%02m/%02d %H:%M:%S') +
+    print(datetime.now().strftime('%y/%m/%d %H:%M:%S') +
           f' Loading target task {args.dataset}',
           flush=True)
 
