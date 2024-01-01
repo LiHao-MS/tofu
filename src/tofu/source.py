@@ -88,7 +88,7 @@ def train_env_specific_model(data, train_env_id, val_env_id, args):
 
     # start training the env specific model
     for ep in range(args.num_epochs):
-        train_res = train_loop(train_loader, cur_model, cur_opt, ep, args)
+        train_res = train_loop(train_loader, cur_model, cur_opt, ep, args) # start train
 
         with torch.no_grad():
             # evaluate on the other training environment

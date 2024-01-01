@@ -17,11 +17,11 @@ def get_parser():
     parser.add_argument('--cuda', type=int, default=0)
 
     # data sample
-    parser.add_argument('--num_epochs', type=int, default=1000,
+    parser.add_argument('--num_epochs', type=int, default=2,
                         help='max number of epochs to run')
-    parser.add_argument('--num_batches', type=int, default=100,
+    parser.add_argument('--num_batches', type=int, default=10,
                         help='sample num_batches batches for each epoch')
-    parser.add_argument('--batch_size', type=int, default=50)
+    parser.add_argument('--batch_size', type=int, default=10)
     parser.add_argument('--seed', type=int, default=0)
 
     # model
